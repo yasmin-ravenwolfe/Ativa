@@ -1,10 +1,12 @@
 source 'https://rubygems.org'
 
 # Use HAML
+
 gem 'devise'
 gem 'hirb'
 gem 'haml-rails'
 gem 'haml'
+gem 'html2haml'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
