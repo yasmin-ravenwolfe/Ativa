@@ -14,4 +14,4 @@
       %p= post.message.truncate(300)
 
       - if post.attachment?
-        = image_tag post.attachment_url
+        = image_tag post.attachment_url(:thumb)
