@@ -24,14 +24,14 @@ class SubscriptionsController < ApplicationController
       format.json { head :no_content }
     end
   end
- def set_project
-      @project = Project.find(params[:project_id])
-    end
+
   private
 
     def set_subscription
       @subscription = Subscription.find(params[:id])
     end
-
+    def set_project
+      @project = Project.find(params[:project_id])
+    end
    
 end

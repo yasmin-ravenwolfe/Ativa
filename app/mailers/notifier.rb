@@ -20,12 +20,11 @@ class Notifier < ActionMailer::Base
     mail(to: "#{user.name} <#{user.email}>", subject: "Un-subscribed to #{project.name.capitalize} | Ativa")
   end
 
-  def post_notification(user, project, post)
+  def post_notification(user, post)
     @user = user
-    @project = project
     @post = post
     
 
-     mail(to: "#{user.name} <#{user.email}>", subject: "New post #{post.title.capitalize} for #{project.name.capitalize} | Ativa")
+     mail(to: "#{user.name} <#{user.email}>", subject: "New post #{post.title.capitalize} | Ativa")
   end
 end
