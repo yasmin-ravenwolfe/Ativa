@@ -7,6 +7,7 @@ class SubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @subscription.save
+        Notifier.subscription_confirmation(current_user, @project).deliver
         format.html { redirect_to project_path(@project.id), notice: 'You are now subscribed to this project.' }
       else
         format.html { redirect_to project_path(@project.id), alert: 'Your subscription could not be processed.' }
@@ -16,7 +17,9 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription.destroy
+    Notifier.subscription_terminate(current_user, @project).deliver
     respond_to do |format|
+      Notifier.subscription_terminate(current_user, @project).deliver
       format.html { redirect_to project_path(@project.id), notice: 'You are now unsubscribed from this project.' }
       format.json { head :no_content }
     end
