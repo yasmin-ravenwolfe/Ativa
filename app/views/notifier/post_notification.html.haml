@@ -1,8 +1,10 @@
 Notifier#post_notification
 
 %p= "Hello #{@user.name},"
-%p= "There is a new post #{@post.title.capitalize}"
+%p= "There is a new post #{@post.title.capitalize} on #{@post.project.name.capitalize}"
+%p= "It was created by #{@post.user.name} and says #{@post.message}"
 %p For more information, click the link below:
+= link_to @post.project.name.capitalize, project_url(@post.project)
 
 %br
 %p Thank you,
