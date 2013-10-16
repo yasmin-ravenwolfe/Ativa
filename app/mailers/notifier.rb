@@ -20,11 +20,12 @@ class Notifier < ActionMailer::Base
     mail(to: "#{user.name} <#{user.email}>", subject: "Un-subscribed to #{project.name.capitalize} | Ativa")
   end
 
-  def post_notification(user, post)
-    @user = user
+  def post_notification(post, user)
     @post = post
+    @user = user
     
-
+    # Users is an array of all users subscribed to project. Bc its an array, can't call email on it, have to do this through .each on posts_controller.
      mail(to: "#{user.name} <#{user.email}>", subject: "New post #{post.title.capitalize} | Ativa")
   end
+  # post.project.subscriptions.users.email
 end
