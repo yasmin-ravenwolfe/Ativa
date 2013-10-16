@@ -28,6 +28,7 @@ class PostsController < ApplicationController
     @post.phase_id = Phase.find_by_name(params[:post][:phase_id]).id
     respond_to do |format|
       if @post.save
+        Notifier.post_notification(current_user, @project, @post).deliver
         format.html { redirect_to project_url(@post.project_id, phase: @post.phase.name), notice: 'Post was successfully created.' }
         format.json { render action: 'show', status: :created, location: @post }
       else
