@@ -78,6 +78,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to projects_url }
       format.json { head :no_content }
+      format.js { render layout: false }
     end
   end
 
