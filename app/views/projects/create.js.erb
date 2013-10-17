@@ -1,4 +1,5 @@
 (function () {
   var projectHtml = "<%= j render('show', :project => @project) %>";
   $('.projects').prepend(projectHtml);
+  $('#project_name').val('')
 })();
