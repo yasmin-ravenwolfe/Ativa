@@ -2,7 +2,7 @@ alert('Project created!');
 
 (function () {
   var updateHtml = "<%= j render('form', :project => @project) %>";
- $('tr[data-project-id="<%= @project.id %>"').replaceWith(projectHtml);
+ $('tr[data-project-id="<%= @project.id %>"]').replaceWith(data);
   $('#project_name').val('')
-})
+})();
 
