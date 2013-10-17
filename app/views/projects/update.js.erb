@@ -1,0 +1,8 @@
+alert('Project created!');
+
+(function () {
+  var updateHtml = "<%= j render('form', :project => @project) %>";
+ $('tr[data-project-id="<%= @project.id %>"').replaceWith(projectHtml);
+  $('#project_name').val('')
+})
+

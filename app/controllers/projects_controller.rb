@@ -38,6 +38,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/1/edit
   def edit
+
   end
 
   # POST /projects
@@ -64,6 +65,7 @@ class ProjectsController < ApplicationController
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
         format.json { head :no_content }
+        format.js { render layout: false }
       else
         format.html { render action: 'edit' }
         format.json { render json: @project.errors, status: :unprocessable_entity }
